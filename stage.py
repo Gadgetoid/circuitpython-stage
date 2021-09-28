@@ -4,12 +4,12 @@ import digitalio
 try:
     import audioio
 except ImportError:
-    pass
-else:
-    try:
-        import audiocore
-    except ImportError:
-        audiocore = audioio
+    audioio = None
+    import audiopwmio
+try:
+    import audiocore
+except ImportError:
+    audiocore = audioio
 import struct
 
 import _stage
